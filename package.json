@@ -2,12 +2,20 @@
   "name": "dsa",
   "version": "1.0.0",
   "description": "",
-  "main": "dsa.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avirag26/DSA.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/avirag26/DSA/issues"
+  },
+  "homepage": "https://github.com/avirag26/DSA#readme"
 }
