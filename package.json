@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/avirag26/DSA/issues"
   },
-  "homepage": "https://github.com/avirag26/DSA#readme"
+  "homepage": "https://github.com/avirag26/DSA#readme",
+  "dependencies": {
+    "redline": "^1.0.1"
+  }
 }
