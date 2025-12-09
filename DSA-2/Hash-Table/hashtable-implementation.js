@@ -110,4 +110,5 @@ const hashCol = new  HastTableCollision(50)
 hashCol.set("name","avirag")
 hashCol.set("mane","ashin")
 hashCol.set("roll",20)
-hashCol.display()
+hashCol.remove("roll")
+

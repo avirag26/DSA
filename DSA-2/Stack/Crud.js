@@ -95,3 +95,25 @@ edit.undoAction()
 edit.undoAction()
 edit.undoAction()
 edit.redoAction()
+
+
+//Sort a string using stack
+
+const str = 'efgabcd';
+
+function sort(){
+  
+    let stack=str.split("");
+    let stack2=[];
+
+    while(stack.length){
+        let top=stack.pop()
+
+        while(stack2.length > 0 && stack2[stack2.length-1]>top){
+            stack.push(stack2.pop())
+        }
+        stack2.push(top)
+    }
+    console.log(stack2.join(""))
+}
+
