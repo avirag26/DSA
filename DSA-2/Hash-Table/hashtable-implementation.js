@@ -93,6 +93,9 @@ class HastTableCollision{
         const samekey = bucket.find(item => item[0]==key)
         if(samekey){
            bucket.splice(bucket.indexOf(samekey),1)
+           if(bucket.length==0){
+            this.table[index]=undefined
+           }
         }
        }
        return undefined
