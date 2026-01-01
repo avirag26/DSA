@@ -13,6 +13,17 @@ function flatten(arr){
 }
 // console.log(flatten([1, [2, [3, [4]]]]))
 
+function deepCopy(obj){
+    if(!obj||typeof obj !=="object"){
+        return obj
+    }
+    let copy = Array.isArray(obj)?[]:{}
+    for(let i in obj){
+        copy[i]=deepCopy(obj[i])
+    }
+    return copy
+}
+
 //factoril
 
 function factorial(n){

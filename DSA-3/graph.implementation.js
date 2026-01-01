@@ -39,35 +39,32 @@ class Graph{
     }
     bfs(start){
         let queue=[]
-        let visited = new Set()
-
+        let visited=new Set()
         queue.push(start)
         visited.add(start)
-
-        while(queue.length > 0){
-            const vertex = queue.shift()
+        while(queue.length){
+            let vertex = queue.shift()
             console.log(vertex)
-            for(let neighbour of this.adjecencyList[vertex]){
-                if(!visited.has(neighbour)){
-                    visited.add(neighbour)
-                    queue.push(neighbour)
+            for(let adj of this.adjecencyList[vertex]){
+                if(!visited.has(adj)){
+                    visited.add(adj)
+                    queue.push(adj)
                 }
             }
         }
     }
     dfs(start){
-        let stack=[start]
-        let visited = new Set()
-
-        while(stack.length>0){
-            let vertex = stack.pop()
+        let stack=[]
+        let visited=new Set()
+        stack.push(start)
+        while(stack.length){
+            let vertex=stack.pop()
             if(!visited.has(vertex)){
                 visited.add(vertex)
                 console.log(vertex)
-
-                for(let neighbour of this.adjecencyList[vertex]){
-                    if(!visited.has(neighbour)){
-                    stack.push(neighbour)
+                for(let adj of this.adjecencyList[vertex]){
+                    if(!visited.has(adj)){
+                        stack.push(adj)
                     }
                 }
             }
@@ -77,6 +74,31 @@ class Graph{
         for(let vertex in this.adjecencyList){
             console.log(vertex + " -> "+[...this.adjecencyList[vertex]])
         }
+    }
+    hasCycle(){
+        let visited = new Set()
+
+        for(let start in this.adjecencyList){
+        
+            if(!visited.has(start)){
+                let queue=[[start,null]]
+                visited.add(start)
+                while(queue.length){
+                    let [vertex ,parent]=queue.shift()
+                     for(let adj of this.adjecencyList[vertex]){
+                        if(!visited.has(adj)){
+                            visited.add(adj)
+                            queue.push([adj,vertex])
+                        }
+                        else if(adj!==parent) {
+                          return true
+                        }
+                     }
+                }
+
+            }
+        }
+        return false
     }
 }
 const graph = new Graph()
@@ -88,10 +110,10 @@ graph.addVertex("D")
 graph.addEedges("A","B")
 graph.addEedges("B","C")
 graph.addEedges("C","D")
+graph.addEedges("D","A")
 // graph.display()
 // console.log(graph.hasEdges("A","B"))
 // graph.removeVertex("A")
 // graph.display()
-graph.bfs("A")
-console.log("---------------")
+console.log(graph.hasCycle())
 graph.dfs("A")

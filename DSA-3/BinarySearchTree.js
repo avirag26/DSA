@@ -30,12 +30,15 @@ class BinarySearchTree{
             } else {
                 this.insertNode(root.left,node)
             }
-        } else {
+        } else if(node.value>root.value){
             if(root.right==null){
                 root.right=node
             } else {
                 this.insertNode(root.right,node)
             }
+        } else{
+            console.log("Duplicate detected")
+            return root
         }
     }
 
@@ -157,6 +160,11 @@ class BinarySearchTree{
       }
       return -1
     }
+     delete(root,value){
+        if(!root){
+            return 
+        }
+     }
 }
 
 const bst=new BinarySearchTree()
